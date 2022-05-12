@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import Item from '../Item/Item';
+import './Inventory.css'
 
 const Inventory = () => {
-    const [items, setItems]=useState([]);
+    const [items, setItems] = useState([]);
 
-    useEffect(()=>{
+    useEffect(() => {
         fetch('inventory.json')
-        .then(res=>res.json())
-        .then(data=>setItems(data));
-    },[])
+            .then(res => res.json())
+            .then(data => setItems(data));
+    }, [])
     return (
-        <div>
-            <h3>This is Inventory: {items.length}</h3>
+        <div className='items-container'>
             {
-                items.map(item=><Item key={item.id}
-                item={item}
+                items.slice(0, 6).map(item => <Item key={item.id}
+                    item={item}
                 ></Item>)
             }
         </div>

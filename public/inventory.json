@@ -1,44 +1,85 @@
 [
     {
         "id": 1,
-        "name": "ENGINE DIAGNOSTIC",
-        "price": "300",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
-        "img": "https://i.ibb.co/dGDkr4v/1.jpg"
+        "name": "The Ottomans: Khans, Caesars, and Caliphs",
+        "price": "25",
+        "description": "The Ottoman Empire has long been depicted as the Islamic, Asian antithesis of the Christian, European West. But the reality was starkly different: the Ottomans multiethnic, multilingual, and multireligious domain reached deep into Europe's heart.",
+        "img": "https://i.ibb.co/4PX2kLk/ottomas.jpg",
+        "quantity": "10",
+        "supplier": "Asadul Amin"
+        
     },
     {
         "id": 2,
-        "name": "WHEEL ALIGNMENT",
-        "price": "100",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
-        "img": "https://i.ibb.co/tY8dmnP/2.jpg"
+        "name": "The Ruin of All Witches: Life and Death in the New World",
+        "price": "30",
+        "description": "A gripping story of a family tragedy brought about by witch-hunting in Puritan New England that combines history, anthropology, sociology, politics, theology and psychology..",
+        "img": "https://i.ibb.co/61FfMH5/41-I8i-Z2l2-JL-SX334-BO1-204-203-200.jpg",
+        "quantity": "100",
+        "supplier": "Badrul Amin"
+
     },
     {
         "id": 3,
-        "name": "OIL CHANGING",
-        "price": "150",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
-        "img": "https://i.ibb.co/Yh04YVw/3.jpg"
+        "name": "Devil-Land: England Under Siege, 1588-1688",
+        "price": "45",
+        "description": "A BOOK OF THE YEAR 2021, AS CHOSEN BY THE TIMES, NEW STATESMAN, TELEGRAPH AND TIMES LITERARY SUPPLEMENT.",
+        "img": "https://i.ibb.co/gttPc3C/devil.jpg",
+        "quantity": "50",
+        "supplier": "Baharul Amin"
     },
     {
         "id": 4,
-        "name": "BRAKE REPARING",
-        "price": "180",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
-        "img": "https://i.ibb.co/ZX2Cbkn/4.jpg"
+        "name": "Going to Church in Medieval England",
+        "price": "35",
+        "description": "An engaging, richly illustrated account of parish churches and churchgoers in England, from the Anglo-Saxons to the mid-sixteenth century.",
+        "img": "https://i.ibb.co/C2nv0vg/church.jpg",
+        "quantity": "100",
+        "supplier": "Ziaul Amin"
     },
     {
         "id": 5,
-        "name": "WASH AND GLASSING",
-        "price": "100",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
-        "img": "https://i.ibb.co/FgQ3jXp/5.jpg"
+        "name": "God: An Anatomy",
+        "price": "22",
+        "description": "An astonishing and revelatory history that re-presents God as he was originally envisioned by ancient worshippers—with a distinctly male body, and with superhuman powers, earthly passions, and a penchant for the fantastic and monstrous.",
+        "img": "https://i.ibb.co/b3WbrhC/god.jpg",
+        "quantity": "25",
+        "supplier": "Saiyadul Amin"
     },
     {
         "id": 6,
-        "name": "COMPLETE ANALYSIS",
-        "price": "300",
+        "name": "Fallen Idols: Twelve Statues That Made History",
+        "price": "20",
         "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa",
-        "img": "https://i.ibb.co/zJy5ZDd/6.jpg"
+        "img": "https://i.ibb.co/F6WWh3C/fallen.webp",
+        "quantity": "100",
+        "supplier": "Shafiul Amin"
+    },
+    {
+        "id": 7,
+        "name": "The First World War by Michael Howard (2003-03-13)",
+        "price": "55",
+        "description": "This book is written first world war. If you want to know about first world war, you must read it.",
+        "img": "https://i.ibb.co/7bQdC45/first.jpg",
+        "quantity": "50",
+        "supplier": "Ruhul Amin"
+    },
+    {
+        "id": 8,
+        "name": "Democratic Enlightenment: Philosophy, Revolution, and Human Rights, 1750-1790",
+        "price": "47",
+        "description": "That the Enlightenment shaped modernity is uncontested. Yet remarkably few historians or philosophers have attempted to trace the process of ideas from the political and social turmoil of the late eighteenth century to the present day. This is precisely what Jonathan Israel now does.",
+        "img": "https://i.ibb.co/zFKMtxh/democratic.jpg",
+        "quantity": "50",
+        "supplier": "Khairul Amin"
+    },
+    {
+        "id": 9,
+        "name": "The Religious Enlightenment: Protestants, Jews, and Catholics from London to Vienna",
+        "price": "33",
+        "description": "In intellectual and political culture today, the Enlightenment is routinely celebrated as the starting point of modernity and secular rationalism, or demonized as the source of a godless liberalism in conflict with religious faith",
+        "img": "https://i.ibb.co/16nGzY8/religius.jpg",
+        "quantity": "100",
+        "supplier": "Nurul Amin"
     }
 ]
