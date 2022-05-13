@@ -4,20 +4,21 @@ import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 const Header = () => {
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
                     <Navbar.Brand href="#home">Book Warehouse</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#features">Home</Nav.Link>
-                            <Nav.Link href="#pricing">Blog</Nav.Link>
-                            <Nav.Link href="#pricing">About</Nav.Link>
+                            <Nav.Link href="home">Home</Nav.Link>
+                            <Nav.Link href="#inventory">Inventory</Nav.Link>
+                            <Nav.Link href="#blog">Blog</Nav.Link>
+                            <Nav.Link href="#about">About</Nav.Link>
                             
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">More deets</Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes">
+                            <Nav.Link href="contact">Contact</Nav.Link>
+                            <Nav.Link eventKey={2} href="login">
                                 Login
                             </Nav.Link>
                         </Nav>
