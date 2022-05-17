@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Item from '../Item/Item';
-import './Inventory.css'
+import Invent from '../Invent/Invent';
 
-const Inventory = () => {
+const Inventories = () => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
@@ -11,14 +10,14 @@ const Inventory = () => {
             .then(data => setItems(data));
     }, [])
     return (
-        <div id="inventory">
-            <h1 className='text-center text-primary mt-5'>Inventory Product</h1>
+        <div>
+            <h1 className='text-center text-primary mt-5'>Total Inventory Product: {items.length}</h1>
             <div className='items-container'>
 
                 {
-                    items.slice(0, 6).map(item => <Item key={item.id}
+                    items.map(item => <Invent key={item.id}
                         item={item}
-                    ></Item>)
+                    ></Invent>)
                 }
             </div>
             
@@ -26,4 +25,4 @@ const Inventory = () => {
     );
 };
 
-export default Inventory;
+export default Inventories;

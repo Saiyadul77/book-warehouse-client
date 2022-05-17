@@ -1,114 +1,93 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { createUserWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import SocialLogin from '../SocialLogin/SocialLogin';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Loading from '../../Loading/Loading';
 
 const Login = () => {
-    const [register, setRegister] = useState(false);
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+    const emailRef = useRef('');
+    const passwordRef = useRef('');
+    const navigate = useNavigate();
+    const location = useLocation();
 
-    const handleNameBlur = event => {
-        setName(event.target.value)
-    }
-    const handleEmailBlur = event => {
-        setEmail(event.target.value);
 
-    }
-    const handlePasswordBlur = event => {
-        setPassword(event.target.value);
+    let from = location.state?.from?.pathname || "/";
 
-    }
-    const handleRegister = event => {
-        setRegister(event.target.checked);
-    }
-    
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
 
-    const handleUser = event => {
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
+    if (loading || sending) {
+        return <Loading></Loading>
+    }
+
+    if (user) {
+        navigate(from, { replace: true });
+    }
+
+    let errorElement;
+    if (error) {
+        errorElement = <p className='text-danger'>Error: {error?.message} </p>
+    }
+
+    const handleSubmit = event => {
         event.preventDefault();
-        if (register) {
-            signInWithEmailAndPassword(auth,email, password)
-                .then(result => {
-                    const user = result.user;
-                    console.log(user)
-                })
-                .catch(error => {
-                    console.log(error);
-                    setError(error.message)
-                })
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
+        signInWithEmailAndPassword(email, password)
+
+    }
+
+    const navigateRegister = (event) => {
+        event.preventDefault();
+        navigate('/register');
+    }
+
+    const navigateResetPassword = async () => {
+        const email = emailRef.current.value;
+
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('Sent email');
         }
         else {
-            createUserWithEmailAndPassword(auth,email, password)
-                .then(result => {
-                    const user = result.user;
-                    setEmail('');
-                    setPassword('');
-                    verifyEmail();
-                    userUpdate();
-                    console.log(user)
-                })
-                .catch(error => {
-                    console.error(error);
-                    setError(error.message);
-                })
-
+            toast('Please enter your email')
         }
-        // console.log('form submited', email, password);
+
     }
 
-    const handleRestPassword = () => {
-        sendPasswordResetEmail(auth, email)
-            .then(() => {
-                console.log('password rest send email')
-            })
-    }
-
-    const userUpdate=()=>{
-        updateProfile(auth.currentUser, {
-            displayName: name
-        })
-        .then(()=>{
-            console.log('updated name')
-        })
-        .catch(error=>{
-            setError(error.message);
-        })
-    }
-
-    const verifyEmail = () => {
-        sendEmailVerification(auth.currentUser)
-            .then(() => {
-                console.log('send email verification')
-            })
-    }
     return (
-        <div>
-            <div className='register w-50 mx-auto mt-5'>
-                <h1 className='text-primary'>Please {register ? 'Login' : 'Register'}</h1>
-                <Form onSubmit={handleUser}>
-                    {!register && <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Control onBlur={handleNameBlur} type="text" placeholder="Enter Name" required />
-                    </Form.Group>}
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Control onBlur={handleEmailBlur} type="email" placeholder="Enter email" required />
-                    </Form.Group>
+        <div className='container w-50 mx-auto'>
+            <h1 className='text-primary text-center'>Login</h1>
+            <Form onSubmit={handleSubmit}>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control ref={emailRef} type="email" placeholder="Enter email" required />
+                </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Control onBlur={handlePasswordBlur} type="password" placeholder="Password" required />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                        <Form.Check onChange={handleRegister} type="checkbox" label="Already Registered?" />
-                    </Form.Group>
-                    <p className='text-danger'>{error}</p>
-                    <Button onClick={handleRestPassword} variant="link">Forget Password??</Button><br />
-                    <Button variant="primary" type="submit">
-                        {register ? "Login" : "Register"}
-                    </Button>
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control ref={passwordRef} type="password" placeholder="Password" required />
+                </Form.Group>
 
-                </Form>
-            </div>
+                <Button variant="primary" type="submit">
+                    Login
+                </Button>
+            </Form>
+            {errorElement}
+            <p>New Student? <Link to='/register' className='text-primary text-decoration-none' onClick={navigateRegister}>Please Register</Link></p>
+            <p>Forget Password? <button className='text-primary text-decoration-none' onClick={navigateResetPassword}>Rest Password</button></p>
+            <SocialLogin></SocialLogin>
+            <ToastContainer />
         </div>
     );
 };
