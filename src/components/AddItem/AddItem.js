@@ -1,39 +1,39 @@
 import React from 'react';
+import { useForm } from "react-hook-form";
+const AddService = () => {
+    const { register, handleSubmit } = useForm();
+    const onSubmit = data => {
+        console.log(data)
 
-const AddItem = () => {
-    const handleuser = event => {
-        event.preventDefault();
-        const name = event.target.name.value;
-        const email = event.target.email.value;
-        const user = { name, email };
-
-        // send item to the server
-
-        fetch('http://localhost:5000/user', {
-            method: 'POST', 
+        const url = `http://localhost:5000/service`;
+        fetch(url, {
+            method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(user),
+                'content-type': 'application/json'
+            },    // coma na deoar karone lal bati dekhaise
+            body: JSON.stringify(data)
         })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-                alert ('user upadate successfully');
-                event.target.reset();
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
             })
 
-    }
+    };
+
     return (
-        <div>
-            <h1>Please Add Your Item</h1>
-            <form onSubmit={handleuser}>
-                <input type="text" name='name' placeholder='name' required /><br />
-                <input type="email" name='email' placeholder='Email' required /><br />
-                <input type="submit" value="Add Item" />
+        <div className='w-50 mx-auto'>
+            <h1>Please add to service</h1>
+            <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
+                <input className='mb-2' placeholder='Book Name'{...register("name", { required: true, maxLength: 20 })} />
+                <input className='mb-2' placeholder='Price' type="number" {...register("price")} />
+                <textarea className='mb-2' placeholder='Description'{...register("description")} />
+                <input className='mb-2' placeholder='Photo URL' type="text" {...register("img")} />
+                <input className='mb-2' placeholder='Quantity' type="number" {...register("quantity")} />
+                <input className='mb-2' placeholder='Supplier Name'{...register("supplierName", { required: true, maxLength: 20 })} />
+                <input type="submit" value="Add Service" />
             </form>
         </div>
     );
 };
 
-export default AddItem;
+export default AddService;
