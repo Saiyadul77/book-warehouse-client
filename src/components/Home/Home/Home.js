@@ -3,7 +3,9 @@ import About from '../About/About';
 import Banner from '../Banner/Banner';
 import Contact from '../Contact/Contact';
 import Inventory from '../Inventory/Inventory';
-import Manage from '../ManageItem/Manage/Manage';
+import Manage from '../../ManageItem/Manage/Manage';
+
+
 
 
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import useInventoryDetail from '../../hooks/useInventoryDetail/useInventoryDetail';
 
@@ -6,6 +6,12 @@ import useInventoryDetail from '../../hooks/useInventoryDetail/useInventoryDetai
 const InventoryDetail = () => {
     const {inventoryId}=useParams();
     const [inventory]=useInventoryDetail(inventoryId)
+    const [quantity, setQuantity]= useState(0);
+    
+    const updateQuantity=()=>{
+        const quantity=quantity-1;
+        setQuantity(quantity);
+    }
    
     return (
         <div className='text-center w-50 mx-auto'>
@@ -14,9 +20,9 @@ const InventoryDetail = () => {
             <img src={inventory.img} alt="" />
             <p>{inventory.description}</p>
             <p>Price: ${inventory.price}</p>
-            <p>Quantity: {inventory.quantity}</p>
+            <p>Quantity:{quantity} {inventory.quantity}</p>
             <p>Supplier Name:{inventory.supplier}</p>
-            <button className='btn btn-primary'>Delivered</button><br />
+            <button onClick={updateQuantity} className='btn btn-primary'>Delivered</button><br />
             <input type="text" placeholder='Restock the Item' required/>
             <input type="submit" value="Restock" />
         </div>
