@@ -7,8 +7,8 @@ const InventoryDetail = () => {
         <div className='text-center'>
             
             <div>
-                <Link to={`/inventories`}>
-                    <button className='btn btn-primary'>Manage Item</button>
+                <Link to={`/manageItem`}>
+                    <button className='btn btn-primary'>Manage Inventories</button>
                 </Link>
             </div>
         </div>

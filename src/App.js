@@ -10,7 +10,7 @@ import InventoryDetail from './components/InventoryDetail/InventoryDetail';
 import RequireAuth from './components/Login/RequireAuth/RequireAuth';
 import CheckOut from './components/CheckOut/CheckOut';
 import AddItem from './components/AddItem/AddItem';
-import Inventories from './components/Home/ManageItem/Inventories/Inventories';
+import ManageItem from './components/ManageItem/ManageItem';
 
 
 
@@ -38,11 +38,12 @@ function App() {
             <AddItem></AddItem>
           </RequireAuth>
         }></Route>
-        <Route path='/inventories' element={
+        <Route path='/manageItem' element={
           <RequireAuth>
-            <Inventories></Inventories>
+            <ManageItem></ManageItem>
           </RequireAuth>
         }></Route>
+        
         <Route path='/checkout' element={
           <RequireAuth>
             <CheckOut></CheckOut>
