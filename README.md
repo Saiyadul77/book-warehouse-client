@@ -1,5 +1,30 @@
 # Getting Started with Create React App
 
+## I have completed my assignment [Welcome to Book Warehouse.](https://science-tutor-5e5e1.web.app/) 
+
+Different Features and Functionality :<br><br>
+         * My webpage name Science Tutor. <br>
+         * I have used react router. <br>
+         * Also I have used firebase. <br>
+         * Also I have used React Firebase Hooks - Auth .<br>
+         * Also I have used react-toastify - npm <br>
+         * Home page will have a header, banner, services and footer. <br>
+         * Here have Login and registration system <br>
+         * Also have checkout and booking form <br>
+         * Login system using email and password, google sign in, facebook sign in and github sign in. <br>
+         * Also create a 404 page. <br> 
+         * Also have information about me with professional look picture. <br><br>
+
+Technologies: <br> <br>
+        * Visual Studio
+        * React Bootstrap <br>
+        * React Router <br>
+        * React app <br>
+        * Firebase <br>
+        * React Firebase hooks <br>
+        * React toastify <br>
+        * Many more technology used
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
