@@ -5,6 +5,7 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { Form, Button } from 'react-bootstrap';
+import Loading from '../../Loading/Loading';
 
 const Register = () => {
     const [agree, setAgree] = useState(false)
@@ -16,9 +17,13 @@ const Register = () => {
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const navigate = useNavigate();
 
+    if (loading) {
+        return <Loading></Loading>
+    }
     if (user) {
         navigate('/home');
     }
+
 
     const navigateLogin = event => {
         event.preventDefault();
