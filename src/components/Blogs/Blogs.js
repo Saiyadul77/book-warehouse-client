@@ -1,5 +1,7 @@
 import React from 'react';
 import Accordion from 'react-bootstrap/Accordion'
+import ImportantLink from '../ImportantLink/ImportantLink';
+import Success from '../Success/Success';
 
 const Blogs = () => {
     return (
@@ -79,6 +81,10 @@ const Blogs = () => {
                         </Accordion.Body>
                     </Accordion.Item>
                 </Accordion>
+            </div>
+            <div>
+                <Success></Success>
+                <ImportantLink></ImportantLink>
             </div>
         </div>
     );

@@ -11,6 +11,8 @@ import RequireAuth from './components/Login/RequireAuth/RequireAuth';
 import CheckOut from './components/CheckOut/CheckOut';
 import AddItem from './components/AddItem/AddItem';
 import ManageItem from './components/ManageItem/ManageItem';
+import Success from './components/Success/Success';
+import ImportantLink from './components/ImportantLink/ImportantLink';
 
 
 
@@ -33,6 +35,8 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+        <Route path='/success' element={<Success></Success>}></Route>
+        <Route path='/important' element={<ImportantLink></ImportantLink>}></Route>
         <Route path='/addItem' element={
           <RequireAuth>
             <AddItem></AddItem>
