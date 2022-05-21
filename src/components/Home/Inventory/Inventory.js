@@ -6,7 +6,7 @@ const Inventory = () => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        const url=`http://localhost:5000/service`
+        const url=`https://mighty-peak-83408.herokuapp.com/service`
         fetch(url)
             .then(res => res.json())
             .then(data => setItems(data));
