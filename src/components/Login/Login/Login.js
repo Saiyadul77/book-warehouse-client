@@ -87,7 +87,7 @@ const Login = () => {
                 </Button>
             </Form>
             {errorElement}
-            <p>New Student? <Link to='/register' className='text-primary text-decoration-none' onClick={navigateRegister}>Please Register</Link></p>
+            <p>New Member? <Link to='/register' className='text-primary text-decoration-none' onClick={navigateRegister}>Please Register</Link></p>
             <p>Forget Password? <button className='text-primary text-decoration-none' onClick={navigateResetPassword}>Rest Password</button></p>
             <SocialLogin></SocialLogin>
             <ToastContainer />
