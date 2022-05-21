@@ -68,7 +68,7 @@ const Register = () => {
                     disabled={!agree}
                     className="btn btn-info mt-2" type="submit" value="Register" />
             </form>
-            <p>Already student? <Link to='/login' className='text-danger text-decoration-none' onClick={navigateLogin}>Please Login</Link></p>
+            <p>Already Member? <Link to='/login' className='text-danger text-decoration-none' onClick={navigateLogin}>Please Login</Link></p>
             <SocialLogin></SocialLogin>
         </div>
     );
