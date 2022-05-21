@@ -14,6 +14,7 @@ import ManageItem from './components/ManageItem/ManageItem';
 import Success from './components/Success/Success';
 import ImportantLink from './components/ImportantLink/ImportantLink';
 import MyItems from './components/MyItems/MyItems';
+import { ToastContainer } from 'react-toastify';
 
 
 
@@ -63,6 +64,7 @@ function App() {
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
+      <ToastContainer />
     </div>
   );
 }

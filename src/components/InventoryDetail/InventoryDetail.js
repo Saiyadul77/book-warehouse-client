@@ -6,11 +6,23 @@ import useInventoryDetail from '../../hooks/useInventoryDetail/useInventoryDetai
 const InventoryDetail = () => {
     const {inventoryId}=useParams();
     const [inventory]=useInventoryDetail(inventoryId)
-    const [quantity, setQuantity]= useState(0);
+    const [quantity, setQuantity]= useState([]);
     
-    const updateQuantity=()=>{
-        const quantity=quantity-1;
-        setQuantity(quantity);
+    const updateQuantity = id => {
+        // const proceed = window.confirm('Are you sure?');
+        // if (proceed) {
+        //     const url = `http://localhost:5000/service/${id}`;
+        //     fetch(url, {
+        //         method: 'DELETE'
+        //     })
+        //         .then(res => res.json())
+        //         .then(data => {
+        //             console.log(data);
+        //             const remaining = services.filter(service => service._id !== id);
+        //             setServices(remaining);
+
+        //         })
+        // }
     }
    
     return (
